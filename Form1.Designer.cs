@@ -163,6 +163,7 @@
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(button2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
             Text = "CurrencyExcanger";
             ResumeLayout(false);

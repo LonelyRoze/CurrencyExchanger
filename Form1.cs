@@ -30,7 +30,7 @@ namespace CurrencyExchanger
                 return;
             }
 
-            if (idTextBox.Text == "" || idTextBox.Text.Length !=12)
+            if (idTextBox.Text == "" || idTextBox.Text.Length != 12)
             {
                 MessageBox.Show("Проверье поле ИИН!", "Операция невозможна!");
                 return;
