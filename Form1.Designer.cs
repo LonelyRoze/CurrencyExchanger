@@ -123,12 +123,13 @@
             // 
             // button2
             // 
-            button2.Location = new Point(0, 12);
+            button2.Location = new Point(317, 415);
             button2.Name = "button2";
-            button2.Size = new Size(10, 23);
+            button2.Size = new Size(142, 23);
             button2.TabIndex = 11;
             button2.Text = "Админ панель";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // idTextBox
             // 

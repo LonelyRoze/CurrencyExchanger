@@ -32,8 +32,8 @@ namespace CurrencyExchanger
 
             if (textBox1.Text == "0")
             {
-                MessageBox.Show("Значение не может быть равно нулю!", "Операция невозможна!"); 
-                return;   
+                MessageBox.Show("Значение не может быть равно нулю!", "Операция невозможна!");
+                return;
             }
 
             if (idTextBox.Text == "" || idTextBox.Text.Length != 12)
@@ -182,6 +182,12 @@ namespace CurrencyExchanger
 
 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            currency_edit currencyform = new currency_edit();
+            currencyform.ShowDialog();
         }
     }
 
