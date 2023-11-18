@@ -46,5 +46,20 @@ namespace CurrencyExchanger
             return table;
         }
 
+        public DataTable SearchByID(string id)
+        {
+            string query = "SELECT * FROM transactions WHERE iin = @clientID";
+            MySqlCommand cmd = new MySqlCommand(query, getConnection());
+            cmd.Parameters.AddWithValue("clientID", id);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+
+            openConnection();
+            adapter.Fill(table);
+            closeConnection();
+
+            return table;
+        }
+
     }
 }

@@ -17,6 +17,9 @@ namespace CurrencyExchanger
         public table()
         {
             InitializeComponent();
+            dataBase db = new dataBase();
+            DataTable table = new DataTable();
+            dataGridView1.DataSource = db.GetData("SELECT * FROM transactions");
         }
 
 
@@ -31,6 +34,15 @@ namespace CurrencyExchanger
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            dataBase db = new dataBase();
+            DataTable table = new DataTable();
+            string clientId = textBox1.Text; // Получение ID клиента из TextBox
+            DataTable searchResults = db.SearchByID(clientId);
+            dataGridView1.DataSource = searchResults;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             dataBase db = new dataBase();
             DataTable table = new DataTable();
