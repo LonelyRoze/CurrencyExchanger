@@ -18,7 +18,7 @@ namespace CurrencyExchanger
             float i;
             double curr_to_amount = 0.0;
 
-
+            //блок со всякими првоерками
             if (textBox1.Text == "")
             {
                 MessageBox.Show("Поле не может быть пустым!", "Операция невозможна!");
@@ -29,6 +29,13 @@ namespace CurrencyExchanger
                 MessageBox.Show("Вводите только числа!", "Операция невозможна!");
                 return;
             }
+
+            if (idTextBox.Text == "" || idTextBox.Text.Length !=12)
+            {
+                MessageBox.Show("Проверье поле ИИН!", "Операция невозможна!");
+                return;
+            }
+
 
 
             //операции c тенге\
