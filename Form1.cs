@@ -30,6 +30,12 @@ namespace CurrencyExchanger
                 return;
             }
 
+            if (textBox1.Text == "0")
+            {
+                MessageBox.Show("Значение не может быть равно нулю!", "Операция невозможна!"); 
+                return;   
+            }
+
             if (idTextBox.Text == "" || idTextBox.Text.Length != 12)
             {
                 MessageBox.Show("Проверье поле ИИН!", "Операция невозможна!");
