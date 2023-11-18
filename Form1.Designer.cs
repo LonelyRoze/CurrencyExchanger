@@ -39,6 +39,7 @@
             button2 = new Button();
             idTextBox = new TextBox();
             label5 = new Label();
+            dbButton = new Button();
             SuspendLayout();
             // 
             // button1
@@ -148,11 +149,22 @@
             label5.TabIndex = 13;
             label5.Text = "ИИН клиента";
             // 
+            // dbButton
+            // 
+            dbButton.Location = new Point(12, 12);
+            dbButton.Name = "dbButton";
+            dbButton.Size = new Size(75, 45);
+            dbButton.TabIndex = 14;
+            dbButton.Text = "Открыть БД";
+            dbButton.UseVisualStyleBackColor = true;
+            dbButton.Click += dbButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dbButton);
             Controls.Add(label5);
             Controls.Add(idTextBox);
             Controls.Add(label4);
@@ -186,5 +198,6 @@
         private Button button2;
         private TextBox idTextBox;
         private Label label5;
+        private Button dbButton;
     }
 }

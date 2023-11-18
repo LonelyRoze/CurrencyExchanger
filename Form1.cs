@@ -189,6 +189,12 @@ namespace CurrencyExchanger
             currency_edit currencyform = new currency_edit();
             currencyform.ShowDialog();
         }
+
+        private void dbButton_Click(object sender, EventArgs e)
+        {
+            table table = new table();  
+            table.ShowDialog(); 
+        }
     }
 
 

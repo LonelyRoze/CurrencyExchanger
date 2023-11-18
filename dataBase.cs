@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,9 @@ namespace CurrencyExchanger
     internal class dataBase
     {
         MySqlConnection connection = new MySqlConnection("server=localhost; port=3306; username=root; password=root; database=currency_db");
+
+
+
 
         public void openConnection() 
         {
@@ -29,6 +33,18 @@ namespace CurrencyExchanger
             return connection;
         }
 
+        public DataTable GetData(string query)
+        { 
+            MySqlCommand cmd = new MySqlCommand(query, getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+
+            openConnection();
+            adapter.Fill(table);
+            closeConnection();  
+
+            return table;
+        }
 
     }
 }
