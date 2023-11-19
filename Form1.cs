@@ -41,7 +41,12 @@ namespace CurrencyExchanger
                 MessageBox.Show("Значение не может быть равно нулю!", "Операция невозможна!");
                 return;
             }
-
+            
+            if (i <0)
+            {
+                MessageBox.Show("Значение не может быть отрицательным!", "Операция невозможна!");
+                return;
+            }
 
 
 
