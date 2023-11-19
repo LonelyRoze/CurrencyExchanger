@@ -19,6 +19,12 @@ namespace CurrencyExchanger
             double curr_to_amount = 0.0;
 
             //блок со всякими првоерками
+            if (idTextBox.Text == "" || idTextBox.Text.Length != 12 || !long.TryParse(idTextBox.Text, out long _))
+            {
+                MessageBox.Show("Проверье поле ИИН!", "Операция невозможна!");
+                return;
+            }
+
             if (textBox1.Text == "")
             {
                 MessageBox.Show("Поле не может быть пустым!", "Операция невозможна!");
@@ -36,11 +42,7 @@ namespace CurrencyExchanger
                 return;
             }
 
-            if (idTextBox.Text == "" || idTextBox.Text.Length != 12)
-            {
-                MessageBox.Show("Проверье поле ИИН!", "Операция невозможна!");
-                return;
-            }
+
 
 
 
