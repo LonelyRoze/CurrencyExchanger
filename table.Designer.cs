@@ -93,6 +93,7 @@
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "table";
             Text = "table";
             Load += table_Load;
