@@ -5,13 +5,30 @@ namespace CurrencyExchanger
 {
     public partial class Form1 : Form
     {
-        private string userStatus;
-        public Form1()
+        private readonly string userStatus;
+        public Form1(string status)
         {
             InitializeComponent();
             listBox1.SelectedIndex = 0;
             listBox2.SelectedIndex = 1;
             label4.Text = string.Empty;
+            userStatus = status;
+            SetupButtonVisibility();
+        }
+
+
+        private void SetupButtonVisibility()
+        {
+            if (userStatus == "admin")
+            {
+                adminButton.Visible = true;
+                dbButton.Visible = true;
+            }
+            else 
+            {
+                adminButton.Visible = false;
+                dbButton.Visible = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,8 +59,8 @@ namespace CurrencyExchanger
                 MessageBox.Show("Значение не может быть равно нулю!", "Операция невозможна!");
                 return;
             }
-            
-            if (i <0)
+
+            if (i < 0)
             {
                 MessageBox.Show("Значение не может быть отрицательным!", "Операция невозможна!");
                 return;
@@ -200,8 +217,8 @@ namespace CurrencyExchanger
 
         private void dbButton_Click(object sender, EventArgs e)
         {
-            table table = new table();  
-            table.ShowDialog(); 
+            table table = new table();
+            table.ShowDialog();
         }
     }
 

@@ -44,9 +44,9 @@ namespace CurrencyExchanger
 
             if (table.Rows.Count > 0)
             {
+                string status = table.Rows[0]["type"].ToString();
                 MessageBox.Show("Yes!");
-                Form1 MainWindow = new Form1();
-
+                Form1 MainWindow = new Form1(status);
                 MainWindow.ShowDialog();
             }
             else

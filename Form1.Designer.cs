@@ -36,7 +36,7 @@
             listBox2 = new ListBox();
             label3 = new Label();
             label4 = new Label();
-            button2 = new Button();
+            adminButton = new Button();
             idTextBox = new TextBox();
             label5 = new Label();
             dbButton = new Button();
@@ -122,15 +122,15 @@
             label4.TabIndex = 10;
             label4.Text = "label";
             // 
-            // button2
+            // adminButton
             // 
-            button2.Location = new Point(317, 415);
-            button2.Name = "button2";
-            button2.Size = new Size(142, 23);
-            button2.TabIndex = 11;
-            button2.Text = "Админ панель";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            adminButton.Location = new Point(317, 415);
+            adminButton.Name = "adminButton";
+            adminButton.Size = new Size(142, 23);
+            adminButton.TabIndex = 11;
+            adminButton.Text = "Админ панель";
+            adminButton.UseVisualStyleBackColor = true;
+            adminButton.Click += button2_Click;
             // 
             // idTextBox
             // 
@@ -175,7 +175,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button1);
-            Controls.Add(button2);
+            Controls.Add(adminButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
             Text = "CurrencyExcanger";
@@ -195,7 +195,7 @@
         private ListBox listBox2;
         private Label label3;
         private Label label4;
-        private Button button2;
+        private Button adminButton;
         private TextBox idTextBox;
         private Label label5;
         private Button dbButton;
