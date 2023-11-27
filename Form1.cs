@@ -39,7 +39,24 @@ namespace CurrencyExchanger
             //блок со всякими првоерками
             if (idTextBox.Text == "" || idTextBox.Text.Length != 12 || !long.TryParse(idTextBox.Text, out long _))
             {
-                MessageBox.Show("Проверье поле ИИН!", "Операция невозможна!");
+                MessageBox.Show("Поле ИИН либо пустое, либо содержит больше/меньше символов!", "Операция невозможна!");
+                return;
+            }
+
+            string monthString = idTextBox.Text.Substring(2, 2);
+            string dayString = idTextBox.Text.Substring(4, 2);
+
+            // Проверка, что месяц - это число от 01 до 12
+            if (!int.TryParse(monthString, out int month) || month < 1 || month > 12)
+            {
+                MessageBox.Show("Номер месяца должен быть от 01 до 12.", "Операция невозможна!");
+                return;
+            }
+
+            // Проверка, что день - это число от 01 до 31
+            if (!int.TryParse(dayString, out int day) || day < 1 || day > 31)
+            {
+                MessageBox.Show("Число дня должно быть от 01 до 31.", "Операция невозможна!");
                 return;
             }
 
