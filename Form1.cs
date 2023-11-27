@@ -5,6 +5,7 @@ namespace CurrencyExchanger
 {
     public partial class Form1 : Form
     {
+        private string userStatus;
         public Form1()
         {
             InitializeComponent();

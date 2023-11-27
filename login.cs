@@ -13,6 +13,7 @@ namespace CurrencyExchanger
 {
     public partial class login : Form
     {
+        string status;
         public login()
         {
             InitializeComponent();
@@ -42,7 +43,12 @@ namespace CurrencyExchanger
             adapter.Fill(table);
 
             if (table.Rows.Count > 0)
+            {
                 MessageBox.Show("Yes!");
+                Form1 MainWindow = new Form1();
+
+                MainWindow.ShowDialog();
+            }
             else
                 MessageBox.Show("No.");
         }
