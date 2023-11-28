@@ -18,12 +18,60 @@ namespace CurrencyExchanger
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
-            GlobalCurrencies.rub_buy = decimal.Parse(buyRub.Text);
-            GlobalCurrencies.rub_sell = decimal.Parse(sellRub.Text);
-            GlobalCurrencies.usd_buy = decimal.Parse(buyUsd.Text);
-            GlobalCurrencies.usd_sell = decimal.Parse(sellUsd.Text);
-            GlobalCurrencies.eur_buy = decimal.Parse(buyEur.Text);
-            GlobalCurrencies.eur_sell = decimal.Parse(sellEur.Text);
+            bool isValid = true;
+
+            if (!decimal.TryParse(buyRub.Text, out decimal rubBuy) || rubBuy <= 0)
+            {
+                isValid = false;
+                MessageBox.Show("Некорректный курс рубля!", "Операция невозможна!");
+                return;
+            }
+
+            if (!decimal.TryParse(sellRub.Text, out decimal rubSell) || rubSell <= 0)
+            {
+                isValid = false;
+                MessageBox.Show("Некорректный курс рубля!", "Операция невозможна!");
+                return;
+            }
+
+            if (!decimal.TryParse(buyUsd.Text, out decimal usdBuy) || usdBuy <= 0)
+            {
+                isValid = false;
+                MessageBox.Show("Некорректный курс доллара!", "Операция невозможна!");
+                return;
+            }
+
+            if (!decimal.TryParse(sellUsd.Text, out decimal usdSell) || usdSell <= 0)
+            {
+                isValid = false;
+                MessageBox.Show("Некорректный курс доллара!", "Операция невозможна!");
+                return;
+            }
+
+            if (!decimal.TryParse(sellEur.Text, out decimal eurSell) || eurSell <= 0)
+            {
+                isValid = false;
+                MessageBox.Show("Некорректный курс евро!", "Операция невозможна!");
+                return;
+            }
+
+            if (!decimal.TryParse(buyEur.Text, out decimal eurBuy) || eurBuy <= 0)
+            {
+                isValid = false;
+                MessageBox.Show("Некорректный курс евро!", "Операция невозможна!");
+                return;
+            }
+
+
+            if (isValid)
+            {
+                GlobalCurrencies.rub_buy = decimal.Parse(buyRub.Text);
+                GlobalCurrencies.rub_sell = decimal.Parse(sellRub.Text);
+                GlobalCurrencies.usd_buy = decimal.Parse(buyUsd.Text);
+                GlobalCurrencies.usd_sell = decimal.Parse(sellUsd.Text);
+                GlobalCurrencies.eur_buy = decimal.Parse(buyEur.Text);
+                GlobalCurrencies.eur_sell = decimal.Parse(sellEur.Text);
+            }
         }
     }
     public static class GlobalCurrencies
