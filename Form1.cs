@@ -130,6 +130,12 @@ namespace CurrencyExchanger
                 return;
             }
 
+            if (listBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите вторую валюту для обмена!", "Операция невозможна!");
+                return;
+            }
+
 
 
 
