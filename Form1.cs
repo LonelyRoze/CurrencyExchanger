@@ -25,6 +25,7 @@ namespace CurrencyExchanger
             userStatus = status;
             SetupButtonVisibility();
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            MessageBox.Show("Не забудьте выставить корректные курсы валют!!", "Внимание!");
         }
 
         private void adminButton_Click(object sender, EventArgs e)
@@ -47,6 +48,7 @@ namespace CurrencyExchanger
             }
         }
 
+        
         // Обработчик события изменения выбранного элемента в первом ListBox
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -74,6 +76,7 @@ namespace CurrencyExchanger
             {
                 // Если выбрана не KZT, то во втором ListBox оставляем только KZT
                 listBox2.Items.Add("KZT");
+                listBox2.SelectedItem = "KZT";
             }
         }
 
@@ -244,17 +247,12 @@ namespace CurrencyExchanger
 
             db.closeConnection();
 
-
-
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             currency_edit currencyform = new currency_edit();
             currencyform.ShowDialog();
-
         }
 
         private void chechSum_Click(object sender, EventArgs e)
@@ -272,6 +270,114 @@ namespace CurrencyExchanger
             label10.Text = usdSell.ToString();
             label11.Text = eurSell.ToString();
 
+            decimal i;
+            decimal curr_to_amount = 0.0m;
+
+            //блок со всякими првоерками
+
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Поле не может быть пустым!", "Операция невозможна!");
+                return;
+            }
+            else if (!decimal.TryParse(textBox1.Text, out i))
+            {
+                MessageBox.Show("Вводите только числа!", "Операция невозможна!");
+                return;
+            }
+
+            if (textBox1.Text == "0")
+            {
+                MessageBox.Show("Значение не может быть равно нулю!", "Операция невозможна!");
+                return;
+            }
+
+            if (i < 0)
+            {
+                MessageBox.Show("Значение не может быть отрицательным!", "Операция невозможна!");
+                return;
+            }
+
+            if (listBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите вторую валюту для обмена!", "Операция невозможна!");
+                return;
+            }
+
+
+            //операции c тенге\
+            if (listBox1.SelectedItem == "KZT" && listBox2.SelectedItem == "KZT")
+            {
+                MessageBox.Show("Нельзя обменять валюту на неё же!", "Операция невозможна!");
+                return;
+            }
+            if (listBox1.SelectedItem == "KZT" && listBox2.SelectedItem == "RUB")
+            {
+                rubSell = GlobalCurrencies.rub_sell;
+                decimal conver = i / rubSell;
+                label4.Text = conver.ToString("F2") + "\t RUB";
+                curr_to_amount = conver;
+            }
+            else if (listBox1.SelectedItem == "KZT" && listBox2.SelectedItem == "EUR")
+            {
+                eurSell = GlobalCurrencies.eur_sell;
+                decimal conver = i / eurSell;
+                label4.Text = conver.ToString("F2") + "\t EUR";
+                curr_to_amount = conver;
+            }
+            else if (listBox1.SelectedItem == "KZT" && listBox2.SelectedItem == "USD")
+            {
+                usdSell = GlobalCurrencies.usd_sell;
+                decimal conver = i / usdSell;
+                label4.Text = conver.ToString("F2") + "\t USD";
+                curr_to_amount = conver;
+            }
+
+
+            //операции c рублем\
+            if (listBox1.SelectedItem == "RUB" && listBox2.SelectedItem == "RUB")
+            {
+                MessageBox.Show("Нельзя обменять валюту на неё же!", "Операция невозможна!");
+                return;
+            }
+            if (listBox1.SelectedItem == "RUB" && listBox2.SelectedItem == "KZT")
+            {
+                rubBuy = GlobalCurrencies.rub_buy;
+                decimal conver = i * rubBuy;
+                label4.Text = conver.ToString("F2") + "\t KZT";
+                curr_to_amount = conver;
+            }
+
+
+            //операции c евро\
+            if (listBox1.SelectedItem == "EUR" && listBox2.SelectedItem == "EUR")
+            {
+                MessageBox.Show("Нельзя обменять валюту на неё же!", "Операция невозможна!");
+                return;
+            }
+            if (listBox1.SelectedItem == "EUR" && listBox2.SelectedItem == "KZT")
+            {
+                eurBuy = GlobalCurrencies.eur_buy;
+                decimal conver = i * eurBuy;
+                label4.Text = conver.ToString("F2") + "\t KZT";
+                curr_to_amount = conver;
+            }
+
+
+
+            //операции c долларом\
+            if (listBox1.SelectedItem == "USD" && listBox2.SelectedItem == "USD")
+            {
+                MessageBox.Show("Нельзя обменять валюту на неё же!", "Операция невозможна!");
+                return;
+            }
+            if (listBox1.SelectedItem == "USD" && listBox2.SelectedItem == "KZT")
+            {
+                usdBuy = GlobalCurrencies.usd_buy;
+                decimal conver = i * usdBuy;
+                label4.Text = conver.ToString("F2") + "\t KZT";
+                curr_to_amount = conver;
+            }
         }
 
         private void dbButton_Click_1(object sender, EventArgs e)
