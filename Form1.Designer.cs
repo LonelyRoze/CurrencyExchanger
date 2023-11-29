@@ -41,12 +41,6 @@
             label5 = new Label();
             dbButton = new Button();
             chechSum = new Button();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -131,11 +125,11 @@
             // 
             // adminButton
             // 
-            adminButton.Location = new Point(12, 62);
+            adminButton.Location = new Point(12, 10);
             adminButton.Name = "adminButton";
             adminButton.Size = new Size(75, 45);
             adminButton.TabIndex = 11;
-            adminButton.Text = "Админ панель";
+            adminButton.Text = "Курсы валют";
             adminButton.UseVisualStyleBackColor = true;
             adminButton.Click += button2_Click;
             // 
@@ -158,7 +152,7 @@
             // 
             // dbButton
             // 
-            dbButton.Location = new Point(12, 12);
+            dbButton.Location = new Point(12, 61);
             dbButton.Name = "dbButton";
             dbButton.Size = new Size(75, 45);
             dbButton.TabIndex = 14;
@@ -177,71 +171,11 @@
             chechSum.UseVisualStyleBackColor = true;
             chechSum.Click += chechSum_Click;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(36, 351);
-            label6.Name = "label6";
-            label6.Size = new Size(38, 15);
-            label6.TabIndex = 16;
-            label6.Text = "label6";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(33, 376);
-            label7.Name = "label7";
-            label7.Size = new Size(38, 15);
-            label7.TabIndex = 17;
-            label7.Text = "label7";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(32, 402);
-            label8.Name = "label8";
-            label8.Size = new Size(38, 15);
-            label8.TabIndex = 18;
-            label8.Text = "label8";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(132, 354);
-            label9.Name = "label9";
-            label9.Size = new Size(38, 15);
-            label9.TabIndex = 19;
-            label9.Text = "label9";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(129, 376);
-            label10.Name = "label10";
-            label10.Size = new Size(44, 15);
-            label10.TabIndex = 20;
-            label10.Text = "label10";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(127, 403);
-            label11.Name = "label11";
-            label11.Size = new Size(44, 15);
-            label11.TabIndex = 21;
-            label11.Text = "label11";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label11);
-            Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
             Controls.Add(chechSum);
             Controls.Add(dbButton);
             Controls.Add(label5);
@@ -279,11 +213,5 @@
         private Label label5;
         private Button dbButton;
         private Button chechSum;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private Label label11;
     }
 }

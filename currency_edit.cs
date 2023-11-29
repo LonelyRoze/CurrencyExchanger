@@ -12,9 +12,31 @@ namespace CurrencyExchanger
 {
     public partial class currency_edit : Form
     {
-        public currency_edit()
+
+        private readonly string userStatus;
+        public currency_edit(string status)
         {
             InitializeComponent();
+            userStatus = status;
+            SetupButtonVisibility();
+            buyRub.Text = GlobalCurrencies.rub_buy.ToString();
+            sellRub.Text = GlobalCurrencies.rub_sell.ToString();
+            buyUsd.Text = GlobalCurrencies.usd_buy.ToString();
+            sellUsd.Text = GlobalCurrencies.usd_sell.ToString();
+            buyEur.Text = GlobalCurrencies.eur_buy.ToString();
+            sellEur.Text = GlobalCurrencies.eur_sell.ToString();
+        }
+
+        private void SetupButtonVisibility()
+        {
+            if (userStatus == "admin")
+            {
+                saveButton.Visible = true;
+            }
+            else
+            {
+                saveButton.Visible = false;
+            }
         }
         private void saveButton_Click(object sender, EventArgs e)
         {

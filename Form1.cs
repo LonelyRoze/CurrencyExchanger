@@ -30,7 +30,7 @@ namespace CurrencyExchanger
 
         private void adminButton_Click(object sender, EventArgs e)
         {
-            currency_edit currencyform = new currency_edit();
+            currency_edit currencyform = new currency_edit(userStatus);
             currencyform.ShowDialog();
         }
 
@@ -38,17 +38,15 @@ namespace CurrencyExchanger
         {
             if (userStatus == "admin")
             {
-                adminButton.Visible = true;
                 dbButton.Visible = true;
             }
             else
             {
-                adminButton.Visible = false;
                 dbButton.Visible = false;
             }
         }
 
-        
+
         // Обработчик события изменения выбранного элемента в первом ListBox
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -251,7 +249,7 @@ namespace CurrencyExchanger
 
         private void button2_Click(object sender, EventArgs e)
         {
-            currency_edit currencyform = new currency_edit();
+            currency_edit currencyform = new currency_edit(userStatus);
             currencyform.ShowDialog();
         }
 
@@ -263,12 +261,7 @@ namespace CurrencyExchanger
             rubSell = GlobalCurrencies.rub_sell;
             usdSell = GlobalCurrencies.usd_sell;
             eurSell = GlobalCurrencies.eur_sell;
-            label6.Text = rubBuy.ToString();
-            label7.Text = usdBuy.ToString();
-            label8.Text = eurBuy.ToString();
-            label9.Text = rubSell.ToString();
-            label10.Text = usdSell.ToString();
-            label11.Text = eurSell.ToString();
+
 
             decimal i;
             decimal curr_to_amount = 0.0m;
